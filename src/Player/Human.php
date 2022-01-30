@@ -2,8 +2,8 @@
 
 namespace Plastonick\WordleEngine\Player;
 
-use function var_dump;
-use const PHP_EOL;
+
+use Plastonick\WordleEngine\Game\State;
 
 class Human implements Playable
 {
@@ -11,7 +11,7 @@ class Human implements Playable
     {
     }
 
-    public function play(): string
+    public function guess(State $state): string
     {
         $f = popen('read; echo $REPLY', "r");
         $input = fgets($f, 100);

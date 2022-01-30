@@ -1,7 +1,9 @@
 <?php
 
 use Plastonick\WordleEngine\Game\Game;
+use Plastonick\WordleEngine\Game\State;
 use Plastonick\WordleEngine\Player\Human;
+use Plastonick\WordleEngine\Player\Playable;
 
 include 'vendor/autoload.php';
 
@@ -15,9 +17,7 @@ $game = new Game($words, new Human());
 
 echo "Ready to play!\n";
 try {
-    while ($result = $game->play()) {
-        $result->shout();
-    }
+    $state = $game->play();
 } catch (Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }

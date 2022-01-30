@@ -4,14 +4,12 @@ namespace Plastonick\WordleEngine\Game;
 
 class Result
 {
-    public function __construct(private readonly array $results, private readonly int $go)
+    public function __construct(private readonly array $results)
     {
     }
 
     public function shout(): void
     {
-        echo $this->go . ' - ';
-
         foreach ($this->results as list($char, $matchType)) {
             switch ($matchType) {
                 case MatchType::NONE;
